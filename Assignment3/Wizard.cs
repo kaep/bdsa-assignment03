@@ -24,5 +24,6 @@ namespace BDSA2020.Assignment03
             using var reader = new CsvReader(csv, CultureInfo.InvariantCulture);
             return reader.GetRecords<Wizard>().ToList().AsReadOnly();
         });
+
     }
 }
