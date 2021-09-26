@@ -10,5 +10,18 @@ namespace BDSA2020.Assignment03.Tests
         {
 
         }
+        [Fact]
+        public void IsSecure_returns_false_with_unsecure_uri()
+        {
+            var url = new Uri("http://itu.dk");
+            Assert.False(url.IsSecure());        
+        }
+
+        [Fact]
+        public void IsSecure_returns_true_with_secure_uri()
+        {
+            var url = new Uri("https://itu.dk"); 
+            Assert.True(url.IsSecure()); 
+        } 
     }
 }
