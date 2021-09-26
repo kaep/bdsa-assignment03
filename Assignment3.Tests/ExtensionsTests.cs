@@ -22,6 +22,17 @@ namespace BDSA2020.Assignment03.Tests
         {
             var url = new Uri("https://itu.dk"); 
             Assert.True(url.IsSecure()); 
+        }
+
+        [Theory]
+        [InlineData("Hello World!", 1)] //<--- "World!" should have been a word, but isn't according to the specification (talk to Paolo about ambiguity in requirements)
+        [InlineData("this is a test", 4)]
+        [InlineData("1this 1is 1a 1test", 0)]
+        [InlineData("and æ ø og å", 5)]
+        [InlineData("You're a wizard Harry", 3)] //<--- You're should have been a word, but isn't according to the specification (talk to Paolo about ambiguity in requirements) 
+        public void WordCount_returns_correct_amount_of_words(string input, int expectedNumWords) 
+        {
+            Assert.Equal(expectedNumWords, input.WordCount()); 
         } 
     }
 }
